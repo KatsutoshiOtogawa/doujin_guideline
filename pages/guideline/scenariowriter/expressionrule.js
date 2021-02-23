@@ -125,6 +125,20 @@ export default function GuidelineScenariowriterExpressionrulePage() {
     createData("嘔吐", true, true)
   ];
 
+  const financenamerows = [
+    createData("パチンコ", true, false),
+    createData("博打", true, false),
+    createData("麻雀", true, true),
+    createData("保険", true, null),
+    createData("ばくち", true, false),
+    createData("株", true, true),
+    createData("FX", true, false),
+    createData("借金", true, true),
+    createData("競馬", null, false),
+    createData("競輪", null, false),
+    createData("競艇", null, false),
+  ];
+  
   const ryonanamerows = [
     createData("死亡", true, true),
     createData("自殺", true, true),
@@ -161,15 +175,13 @@ export default function GuidelineScenariowriterExpressionrulePage() {
         表現規制
       </Typography>
       <Typography variant="body1" gutterBottom>
-        ■ 性器表現の縛りについて/伏せ字のルールについて
-        性器表現の縛りはありません。 どのような表現方法でもOKです。
-        また、伏せ字は不要です。 「ち●こ」といった伏せ字は一切不要です。 ■
-        表現のNG/OK NGになる基本は以下の点です。 ・差別的で問題になりやすい
-        ・思想上問題になりやすい ・他人の財産価値を低下させる恐れがある
-        ・個人・団体に迷惑をかける恐れがある ・販売規定で引っかかる
-        具体的な例　○使用してOK　△場合によって使用してOK　×使用してはいけない
         <Typography variant="h6" gutterBottom>
           人種表現
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+        問題になりやすい、またこちらで問題の閾を把握するのが困難なため黒人などの言葉はNGです。
+        使いたい場合は褐色の肌、透き通るような白など肌の色で表現してください。
+        アメリカの作品などは肌の色をカラフルにしているため、色の表現は規制に引っ掛かりづらいのです。
         </Typography>
         <TableContainer component={Paper} gutterBottom>
           <Table className={classes.table} aria-label="simple table">
@@ -209,6 +221,9 @@ export default function GuidelineScenariowriterExpressionrulePage() {
         <Typography variant="h6" gutterBottom>
           国名
         </Typography>
+        <Typography variant="body1" gutterBottom>
+        一部の国はNGになっております。こちらでルールを把握することが困難なためにグレーゾーンのものは、NGとさせておきます。
+        </Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
@@ -247,17 +262,20 @@ export default function GuidelineScenariowriterExpressionrulePage() {
         <Typography variant="h6" gutterBottom>
           地名
         </Typography>
+        <Typography variant="body1" gutterBottom>
+        具体的すぎるとNGになります。
+        </Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>国名</TableCell>
+                <TableCell>名前</TableCell>
                 <TableCell align="right">許可されているかどうか</TableCell>
                 <TableCell align="right">サークルの方針</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {countrynamerows.map((row) => (
+              {placenamerows.map((row) => (
                 <TableRow key={row.name}>
                   <TableCell component="th" scope="row">
                     {row.name}
@@ -285,17 +303,21 @@ export default function GuidelineScenariowriterExpressionrulePage() {
         <Typography variant="h6" gutterBottom>
           シンボル
         </Typography>
+        <Typography variant="body1" gutterBottom>
+        金融,ギャンブル系については当サークルは厳しめに設定されております。
+        これは、青少年が金融関係の知識を持たないため社会に出るためです。
+        </Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>国名</TableCell>
+                <TableCell>名前</TableCell>
                 <TableCell align="right">許可されているかどうか</TableCell>
                 <TableCell align="right">サークルの方針</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {countrynamerows.map((row) => (
+              {placesymbolnamerows.map((row) => (
                 <TableRow key={row.name}>
                   <TableCell component="th" scope="row">
                     {row.name}
@@ -322,6 +344,9 @@ export default function GuidelineScenariowriterExpressionrulePage() {
         </TableContainer>
         <Typography variant="h6" gutterBottom>
           宗教
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+        精神、宗教の自由に反する可能性が高いためNGです。
         </Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
@@ -359,203 +384,16 @@ export default function GuidelineScenariowriterExpressionrulePage() {
           </Table>
         </TableContainer>
         <Typography variant="h6" gutterBottom>
-          人物名
-        </Typography>
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>国名</TableCell>
-                <TableCell align="right">許可されているかどうか</TableCell>
-                <TableCell align="right">サークルの方針</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {countrynamerows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">
-                    {row.permited === null
-                      ? "Case by case"
-                      : row.permited
-                      ? "Yes"
-                      : "No"}
-                  </TableCell>
-                  <TableCell align="right">
-                    {" "}
-                    {row.mypolicy === null
-                      ? "Case by case"
-                      : row.mypolicy
-                      ? "Yes"
-                      : "No"}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <Typography variant="h6" gutterBottom>
-          国名
-        </Typography>
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>国名</TableCell>
-                <TableCell align="right">許可されているかどうか</TableCell>
-                <TableCell align="right">サークルの方針</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {countrynamerows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">
-                    {row.permited === null
-                      ? "Case by case"
-                      : row.permited
-                      ? "Yes"
-                      : "No"}
-                  </TableCell>
-                  <TableCell align="right">
-                    {" "}
-                    {row.mypolicy === null
-                      ? "Case by case"
-                      : row.mypolicy
-                      ? "Yes"
-                      : "No"}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <Typography variant="h6" gutterBottom>
-          サービス、指標
-        </Typography>
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>国名</TableCell>
-                <TableCell align="right">許可されているかどうか</TableCell>
-                <TableCell align="right">サークルの方針</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {countrynamerows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">
-                    {row.permited === null
-                      ? "Case by case"
-                      : row.permited
-                      ? "Yes"
-                      : "No"}
-                  </TableCell>
-                  <TableCell align="right">
-                    {" "}
-                    {row.mypolicy === null
-                      ? "Case by case"
-                      : row.mypolicy
-                      ? "Yes"
-                      : "No"}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <Typography variant="h6" gutterBottom>
-          タバコ、酒
-        </Typography>
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>国名</TableCell>
-                <TableCell align="right">許可されているかどうか</TableCell>
-                <TableCell align="right">サークルの方針</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {countrynamerows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">
-                    {row.permited === null
-                      ? "Case by case"
-                      : row.permited
-                      ? "Yes"
-                      : "No"}
-                  </TableCell>
-                  <TableCell align="right">
-                    {" "}
-                    {row.mypolicy === null
-                      ? "Case by case"
-                      : row.mypolicy
-                      ? "Yes"
-                      : "No"}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <Typography variant="h6" gutterBottom>
-          薬品名
-        </Typography>
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>国名</TableCell>
-                <TableCell align="right">許可されているかどうか</TableCell>
-                <TableCell align="right">サークルの方針</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {countrynamerows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">
-                    {row.permited === null
-                      ? "Case by case"
-                      : row.permited
-                      ? "Yes"
-                      : "No"}
-                  </TableCell>
-                  <TableCell align="right">
-                    {" "}
-                    {row.mypolicy === null
-                      ? "Case by case"
-                      : row.mypolicy
-                      ? "Yes"
-                      : "No"}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <Typography variant="h6" gutterBottom>
           侮辱
         </Typography>
+        <Typography variant="body1" gutterBottom>
+        下には無くても特定の病気についてはNGです。
+        </Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>国名</TableCell>
+                <TableCell>名前</TableCell>
                 <TableCell align="right">許可されているかどうか</TableCell>
                 <TableCell align="right">サークルの方針</TableCell>
               </TableRow>
@@ -588,6 +426,9 @@ export default function GuidelineScenariowriterExpressionrulePage() {
         </TableContainer>
         <Typography variant="h6" gutterBottom>
           年齢
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+        近年は厳し目になっています。
         </Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
@@ -626,6 +467,8 @@ export default function GuidelineScenariowriterExpressionrulePage() {
         </TableContainer>
         <Typography variant="h6" gutterBottom>
           スカトロ
+        </Typography><Typography variant="body1" gutterBottom>
+        スカトロについての規制です。
         </Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
@@ -663,7 +506,11 @@ export default function GuidelineScenariowriterExpressionrulePage() {
           </Table>
         </TableContainer>
         <Typography variant="h6" gutterBottom>
-          お金、保険、ギャンブル
+          金融、ギャンブル
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+        金融,ギャンブル系については当サークルは厳しめに設定されております。
+        これは日本では青少年が金融関係の知識を持たないため社会に出るためです。
         </Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
@@ -675,7 +522,7 @@ export default function GuidelineScenariowriterExpressionrulePage() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {countrynamerows.map((row) => (
+              {financenamerows.map((row) => (
                 <TableRow key={row.name}>
                   <TableCell component="th" scope="row">
                     {row.name}
@@ -702,6 +549,9 @@ export default function GuidelineScenariowriterExpressionrulePage() {
         </TableContainer>
         <Typography variant="h6" gutterBottom>
           リョナ
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+        リョナ作品を作る時の規制です。
         </Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
@@ -741,6 +591,10 @@ export default function GuidelineScenariowriterExpressionrulePage() {
         <Typography variant="h6" gutterBottom>
           性器
         </Typography>
+        <Typography variant="body1" gutterBottom>
+        性器表現の縛りはありません。 どのような表現方法でもOKです。
+        また、伏せ字は不要です。 「ち●こ」といった伏せ字は一切不要です。
+        </Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
@@ -777,44 +631,47 @@ export default function GuidelineScenariowriterExpressionrulePage() {
           </Table>
         </TableContainer>
       </Typography>
-      <Typography variant="body1" gutterBottom>
-        ■ ファイル形式 納期形式： ■ ファイルの送付
-        音声ファイルサイズが重い場合は、メールで送ることが出来ません。
-        ご自身のサイトにアップロードしてURLをご連絡いただくか、
-        ファイアストレージや宅ファイル便等を利用して、アップロードしたURLをお知らせ下さい
-        <List>
-          <ListItem>
-            <ListItemText>
-              報酬のお支払いに関して、源泉の発行はしておりません。
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>
-              確定申告などの処理は雑収入等、住所などの記載の必要のない方法で処理をお願いいたします。
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>
-              支払いは当サークルより入稿を確認しだい、銀行振り込みになります。
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>
-              銀行振り込みの場合など、銀行に出金データが残る形での支払いの場合は領収書は不要です。
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>
-              振り込み名義は「オトガワカツトシ」です。
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>
-              その他、支払いのタイミング、方法を選択したい場合はご相談ください。
-            </ListItemText>
-          </ListItem>
-        </List>
+      <Typography variant="h6" gutterBottom>
+          その他の表現規制
       </Typography>
+      <Typography variant="body1" gutterBottom>
+      個人・団体に迷惑をかける恐れがあるものはNGです。
+      </Typography>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>名前</TableCell>
+              <TableCell align="right">許可されているかどうか</TableCell>
+              <TableCell align="right">サークルの方針</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {otherrows.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell component="th" scope="row">
+                  {row.name}
+                </TableCell>
+                <TableCell align="right">
+                  {row.permited === null
+                    ? "Case by case"
+                    : row.permited
+                    ? "Yes"
+                    : "No"}
+                </TableCell>
+                <TableCell align="right">
+                  {" "}
+                  {row.mypolicy === null
+                    ? "Case by case"
+                    : row.mypolicy
+                    ? "Yes"
+                    : "No"}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 }
