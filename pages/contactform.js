@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
@@ -13,6 +13,8 @@ import TextField from '@material-ui/core/TextField';
 import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { useRouter } from 'next/router';
+import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles((theme) => ({
     
@@ -36,27 +38,67 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ContactformPage() {
-  const classes = useStyles();
-  // const [chipData, setChipData] = React.useState([
-  //   { key: 0, label: 'Angular' },
-  //   { key: 1, label: 'jQuery' },
-  //   { key: 2, label: 'Polymer' },
-  //   { key: 3, label: 'React' },
-  //   { key: 4, label: 'Vue.js' },
-  // ]);
+    const classes = useStyles();
+    const router = useRouter();
+
+    const [name, setName] = useState('');
+    const [mail_address, setMail_address] = useState('');
+    const [subject, setSubject] = useState('');
+    const [content, setContent] = useState('');
+
+    const handleSubmit = event => {
+        
+        // submitのデフォルトの送信処理をキャンセル。
+        // requiredの機能もなくなるが仕様。
+        event.preventDefault();
+
+        const name = document.querySelector('form #name');
+
+        const mail_address = document.querySelector('form #mail_address');
+
+        const subject = document.querySelector('form #subject');
+
+        document.querySelector('form #subject');
+
+        let data = {
+            name
+            ,mail_address
+            ,subject
+            ,content
+        };
+
+        fetch("https://pointy-gauge.glitch.me/api/form", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json())
+        .then(response => {
+            console.log("Success:", JSON.stringify(response));
+            // リダイレクト
+            router.push('/');
+        }).catch(error => {
+            console.error("Error:", error);
+        });
+    };
 
   return (
     <div>
         <Typography variant="h3" gutterBottom>
         コンタクトフォーム
         </Typography>
-        <form className={classes.form} noValidate autoComplete="off" method="POST" >
-                <TextField id="name" label="お名前" required />
-
-            
-                <TextField id="mail_address" label="メールアドレス" required />
-                <TextField id="subject" label="件名" required />
-                <Grid item xs={12}>
+        <form className={classes.form} noValidate autoComplete="off" method="POST" onSubmit={handleSubmit}>
+            <Grid item xs={12} sm={6}>
+                <TextField id="name" label="お名前" required value={name} onChange={(event)=>setName(event.target.value)} />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <TextField id="mail_address" label="メールアドレス" required value={mail_address} onChange={(event)=>setMail_address(event.target.value)} />
+            </Grid>
+            <Grid item xs={12}>
+                <TextField id="subject" label="件名" required value={subject} onChange={(event)=>setSubject(event.target.value)} />
+            </Grid>
+            <Grid item xs={12}>
                 <TextField
                     id="content"
                     label="本文"
@@ -64,16 +106,21 @@ export default function ContactformPage() {
                     rows={4}
                     rowsMax={8}
                     required
+                    value={content}
+                    onChange={(event)=>setContent(event.target.value)}
                 />
-                </Grid>
+            </Grid>
+            <Grid item xs={12}>
                 <Button
                     variant="contained"
                     color="primary"
                     className={classes.button}
                     endIcon={<Icon>send</Icon>}
+                    type="submit"
                 >
                     送る
                 </Button>
+            </Grid>
         </form>
       <Typography variant="body1" gutterBottom>
         <List>
