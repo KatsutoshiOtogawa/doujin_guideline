@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function GuidelineScenariowriterDataformatPage() {
+export default function GuidelineScenariowriterSoundeffectPage() {
   return (
     <div>
       <Typography variant="h3" gutterBottom>
@@ -29,17 +29,33 @@ export default function GuidelineScenariowriterDataformatPage() {
         ファイル形式　納品形式
       </Typography>
       <Typography variant="body1" gutterBottom>
-        ■ 納品方法について
-        納品方法はサークルが指定する方法で納品をお願いいたします。
-        特に指定がなければ「テキストファイル形式」で納品してください。 ■
-        テキストファイル納品について
-        テキストファイル（文字コードutf8(Bom無し)）で納品して下さい。
-        キャラ紹介があれば一緒にお願いします。
-        キャラ紹介は特にフォーマットはありません。
-        シナリオ本文の納品データとは別に、登場人物キャラクター紹介も簡単な文章にして納品してください。
-        例） シナリオ本文.txt キャラクター紹介.txt
-        ※ファイル名は自由に付けて頂いて結構です。 ■ フォームからの納品の場合
-        サークルが指定するフォームから投稿してください。
+        ■ 「音声作品」シナリオの注意点
+        ◎通常のラノベやゲームシナリオと異なり「ト書き」は無く、ほぼ台詞のみでストーリーを進めます。
+        駄目な例） 公園に二人の少女がやってきた A「おねーちゃんついたよ！」
+        B「もう待ってよ、A」
+        上記の場合「公園に二人の少女がやってきた」というト書き部分がつかえません。
+        セリフのみで「公園に着いた」と言うことを表現しなければいけません。
+        A「おねーちゃん公園についたよ！」 B「もうまってよ、A」
+        ◎「台詞」のみで、試聴者にイメージを与える必要があります。
+        例えば、以下の台詞の場合 A「ほら、どうだ、ここが気持ちいいだろ？」
+        B「いやぁ！きもちい！」
+        この場合、どこをどう責められているのかがわかりません。 例えば、
+        A「ほら、どうだ、クリをつまむと気持ちいいだろ？」
+        B「いやぁ！きもちい！」 とか A「ほら、どうだ、ここが気持ちいいだろ？」
+        B「いやぁ！クリをつままないでぇ！」
+        といったように、どのようなことをされているのかを試聴者にわかるように表現してください。
+        ■ 音声作品の種類について 音声作品は大きく3種類あります。
+        (1)音声ドラマシナリオ (2)視聴者参加型シナリオ (3)催眠シナリオ
+        当サークルから依頼しているのが上記のどれにあたるかで、シナリオの書き方が変わります。
+        (1)音声ドラマシナリオについて ボイスドラマのことです。
+        音声でストーリーが進みます。 シナリオ内に試聴者は参加しません。
+        (2)視聴者参加型シナリオについて
+        ボイスドラマとの違いは、「試聴者」を登場人物として扱うことです。
+        試聴者は、声の相手が目の前にいることを想像して試聴を楽しみます。
+        例えば、添い寝、耳かき、SM命令など、試聴者と疑似コミュニケーションをとります。
+        (3)催眠シナリオについて
+        試聴者に音声を利用して催眠をかけ、試聴者を気持ちよくする目的のシナリオです。
+        当サークルではあまり扱いませんが……
       </Typography>
       <Typography variant="body1" gutterBottom>
         ■ ファイル形式 納期形式： ■ ファイルの送付
@@ -82,7 +98,7 @@ export default function GuidelineScenariowriterDataformatPage() {
       <Divider />
       <Paper component="ul">
         <ListItem>
-        <Chip size="small" label="シナリオライター様向けガイドライン" component="a" href="/guideline/scenariowriter/" clickable />
+        <Chip size="small" label="シナリオライター様向けガイドライン" component="a" href="/guideline/doujin/scenariowriter/" clickable />
         </ListItem>
       </Paper>
     </div>

@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function GuidelineScenariowriterCopyrightPage() {
+export default function GuidelineVoiceActorDataformatPage() {
   return (
     <div>
       <Typography variant="h3" gutterBottom>
@@ -26,14 +26,8 @@ export default function GuidelineScenariowriterCopyrightPage() {
         入稿データについて
       </Typography>
       <Typography variant="h5" gutterBottom>
-        著作権
+        ファイル形式　納品形式
       </Typography>
-      シナリオの著作権は、ライター様にあります。
-      納品いただいたシナリオの使用権は、当サークルにあります。
-      当サークルは、納品いただいたシナリオを販売及び一般配布、広告活動する目的で、シナリオを加工・編集・分割・結合し、公開します。
-      ライター様は当サークルに納品した音声を、当サークルに連絡することなく、販売や公開、譲渡、他の作品での利用等しないで下さい。
-      シナリオを納品いただいた後に、「公開停止」等の要求をすることはご遠慮下さい。
-      但し、内容によっては相談に応じますので、万一のときはご相談下さい。
       <Typography variant="body1" gutterBottom>
         ノーマル音声は、次の形式と同等かそれ以上、44100Hz、16bit、モノラル、wav
         バイノーラル音声は、一般的なバイノーラル環境かそれ以上 ■ ファイルの分割
@@ -84,7 +78,7 @@ export default function GuidelineScenariowriterCopyrightPage() {
       <Divider />
       <Paper component="ul">
         <ListItem>
-          <Chip size="small" label="シナリオライター様向けガイドライン" component="a" href="/guideline/scenariowriter/" clickable />
+          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/doujin/voiceactor/" clickable />
         </ListItem>
       </Paper>
     </div>

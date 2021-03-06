@@ -16,14 +16,18 @@ const useStyles = makeStyles({
   }
 });
 
-export default function GuidelineIndexPage() {
+export default function GuidelineVoiceActorIndexPage() {
   return (
     <div>
       <Typography variant="h3" gutterBottom>
-        ガイドライン一覧
+        ガイドライン
       </Typography>
       <Typography variant="body1" gutterBottom>
-        これらのガイドラインは私音川と仕事をするためのガイドラインです。
+        このガイドラインは
+        <Link href="https://www.tomatama.com/guideline">
+          ケチャップ味のマヨネーズ
+        </Link>
+        様のガイドラインを参考にしております。
       </Typography>
       <Typography variant="h4" gutterBottom>
         全体のガイドライン
@@ -32,7 +36,7 @@ export default function GuidelineIndexPage() {
         <List>
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/doujin/">同人ガイドライン</Link>
+              <Link href="/guideline/payment">報酬の支払い方法について</Link>
             </ListItemText>
           </ListItem>
         </List>
@@ -94,7 +98,7 @@ export default function GuidelineIndexPage() {
         <List>
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/doujin/scenariowriter/dataformat">
+              <Link href="/guideline/scenariowriter/dataformat">
                 作品データのフォーマット、形式について
               </Link>
             </ListItemText>
@@ -102,7 +106,7 @@ export default function GuidelineIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/doujin/scenariowriter/expressionrule">
+              <Link href="/guideline/scenariowriter/expressionrule">
                 表現規制について
               </Link>
             </ListItemText>
@@ -110,7 +114,7 @@ export default function GuidelineIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/doujin/scenariowriter/disclaim">
+              <Link href="/guideline/scenariowriter/disclaim">
                 免責事項について
               </Link>
             </ListItemText>
@@ -118,7 +122,7 @@ export default function GuidelineIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/doujin/scenariowriter/copyright">
+              <Link href="/guideline/scenariowriter/copyright">
                 著作権について
               </Link>
             </ListItemText>

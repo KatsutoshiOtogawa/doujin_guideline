@@ -16,11 +16,11 @@ const useStyles = makeStyles({
   }
 });
 
-export default function GuidelineScenariowriterIndexPage() {
+export default function GuidelineDoujinIndexPage() {
   return (
     <div>
       <Typography variant="h3" gutterBottom>
-        ガイドライン
+        同人ガイドライン
       </Typography>
       <Typography variant="body1" gutterBottom>
         このガイドラインは
@@ -36,7 +36,7 @@ export default function GuidelineScenariowriterIndexPage() {
         <List>
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/payment">報酬の支払い方法について</Link>
+              <Link href="/guideline/doujin/payment">報酬の支払い方法について</Link>
             </ListItemText>
           </ListItem>
         </List>
@@ -49,7 +49,7 @@ export default function GuidelineScenariowriterIndexPage() {
         <List>
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/voiceactor/dataformat">
+              <Link href="/guideline/doujin/voiceactor/dataformat">
                 作品データのフォーマット、形式について
               </Link>
             </ListItemText>
@@ -57,19 +57,19 @@ export default function GuidelineScenariowriterIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/voiceactor/edit">音声編集について</Link>
+              <Link href="/guideline/doujin/voiceactor/edit">音声編集について</Link>
             </ListItemText>
           </ListItem>
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/voiceactor/retake">リテイクについて</Link>
+              <Link href="/guideline/doujin/voiceactor/retake">リテイクについて</Link>
             </ListItemText>
           </ListItem>
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/voiceactor/sample">
+              <Link href="/guideline/doujin/voiceactor/sample">
                 作品サンプルについて
               </Link>
             </ListItemText>
@@ -77,7 +77,7 @@ export default function GuidelineScenariowriterIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/voiceactor/freetalk">
+              <Link href="/guideline/doujin/voiceactor/freetalk">
                 フリートークについて
               </Link>
             </ListItemText>
@@ -85,7 +85,7 @@ export default function GuidelineScenariowriterIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/voiceactor/copyright">著作権について</Link>
+              <Link href="/guideline/doujin/voiceactor/copyright">著作権について</Link>
             </ListItemText>
           </ListItem>
           <Divider />
@@ -98,7 +98,7 @@ export default function GuidelineScenariowriterIndexPage() {
         <List>
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/scenariowriter/dataformat">
+              <Link href="/guideline/doujin/scenariowriter/dataformat">
                 作品データのフォーマット、形式について
               </Link>
             </ListItemText>
@@ -106,7 +106,7 @@ export default function GuidelineScenariowriterIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/scenariowriter/expressionrule">
+              <Link href="/guideline/doujin/scenariowriter/expressionrule">
                 表現規制について
               </Link>
             </ListItemText>
@@ -114,7 +114,7 @@ export default function GuidelineScenariowriterIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/scenariowriter/disclaim">
+              <Link href="/guideline/doujin/scenariowriter/disclaim">
                 免責事項について
               </Link>
             </ListItemText>
@@ -122,7 +122,7 @@ export default function GuidelineScenariowriterIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/scenariowriter/copyright">
+              <Link href="/guideline/doujin/scenariowriter/copyright">
                 著作権について
               </Link>
             </ListItemText>
@@ -133,7 +133,7 @@ export default function GuidelineScenariowriterIndexPage() {
       <Divider />
       <Paper component="ul">
         <ListItem>
-          <Chip size="small" label="イラストレーター様向けガイドライン" component="a" href="/guideline/ilustrator/" clickable />
+          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/doujin/voiceactor/" clickable />
         </ListItem>
       </Paper>
     </div>

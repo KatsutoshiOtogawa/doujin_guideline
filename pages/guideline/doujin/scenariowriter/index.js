@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function GuidelineVoiceActorIndexPage() {
+export default function GuidelineScenariowriterIndexPage() {
   return (
     <div>
       <Typography variant="h3" gutterBottom>
@@ -98,7 +98,7 @@ export default function GuidelineVoiceActorIndexPage() {
         <List>
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/scenariowriter/dataformat">
+              <Link href="/guideline/doujin/scenariowriter/dataformat">
                 作品データのフォーマット、形式について
               </Link>
             </ListItemText>
@@ -106,7 +106,7 @@ export default function GuidelineVoiceActorIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/scenariowriter/expressionrule">
+              <Link href="/guideline/doujin/scenariowriter/expressionrule">
                 表現規制について
               </Link>
             </ListItemText>
@@ -114,7 +114,7 @@ export default function GuidelineVoiceActorIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/scenariowriter/disclaim">
+              <Link href="/guideline/doujin/scenariowriter/disclaim">
                 免責事項について
               </Link>
             </ListItemText>
@@ -122,7 +122,7 @@ export default function GuidelineVoiceActorIndexPage() {
           <Divider />
           <ListItem>
             <ListItemText>
-              <Link href="/guideline/scenariowriter/copyright">
+              <Link href="/guideline/doujin/scenariowriter/copyright">
                 著作権について
               </Link>
             </ListItemText>
@@ -133,7 +133,7 @@ export default function GuidelineVoiceActorIndexPage() {
       <Divider />
       <Paper component="ul">
         <ListItem>
-          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/voiceactor/" clickable />
+        <Chip size="small" label="シナリオライター様向けガイドライン" component="a" href="/guideline/doujin/scenariowriter/" clickable />
         </ListItem>
       </Paper>
     </div>

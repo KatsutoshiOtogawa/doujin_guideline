@@ -170,7 +170,7 @@ export default function GuidelineVoiceActorEditPage() {
       <Divider />
       <Paper component="ul">
         <ListItem>
-          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/voiceactor/" clickable />
+          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/doujin/voiceactor/" clickable />
         </ListItem>
       </Paper>
     </div>

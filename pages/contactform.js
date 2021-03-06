@@ -9,8 +9,13 @@ import Divider from "@material-ui/core/Divider";
 import Paper from "@material-ui/core/Paper";
 import Chip from "@material-ui/core/Chip";
 import TagFacesIcon from '@material-ui/icons/TagFaces';
+import TextField from '@material-ui/core/TextField';
+import Icon from '@material-ui/core/Icon';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
+    
   root: {
     display: 'flex',
     justifyContent: 'center',
@@ -22,9 +27,15 @@ const useStyles = makeStyles((theme) => ({
   chip: {
     margin: theme.spacing(0.5),
   },
+  form: {
+    '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: '25ch',
+      },
+  },
 }));
 
-export default function GuidelineVoiceActorCopyrightPage() {
+export default function ContactformPage() {
   const classes = useStyles();
   // const [chipData, setChipData] = React.useState([
   //   { key: 0, label: 'Angular' },
@@ -35,17 +46,35 @@ export default function GuidelineVoiceActorCopyrightPage() {
   // ]);
 
   return (
-    <div className='root'>
-      <Typography variant="h3" gutterBottom>
-        ガイドライン
-      </Typography>
-      <Typography variant="h4" gutterBottom>
-        入稿データについて
-      </Typography>
-      <Typography variant="h5" gutterBottom>
-        著作権
-      </Typography>
-      
+    <div>
+        <Typography variant="h3" gutterBottom>
+        コンタクトフォーム
+        </Typography>
+        <form className={classes.form} noValidate autoComplete="off" method="POST" >
+                <TextField id="name" label="お名前" required />
+
+            
+                <TextField id="mail_address" label="メールアドレス" required />
+                <TextField id="subject" label="件名" required />
+                <Grid item xs={12}>
+                <TextField
+                    id="content"
+                    label="本文"
+                    multiline
+                    rows={4}
+                    rowsMax={8}
+                    required
+                />
+                </Grid>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.button}
+                    endIcon={<Icon>send</Icon>}
+                >
+                    送る
+                </Button>
+        </form>
       <Typography variant="body1" gutterBottom>
         <List>
           <ListItem>
@@ -89,7 +118,7 @@ export default function GuidelineVoiceActorCopyrightPage() {
       <Divider />
       <Paper component="ul">
         <ListItem>
-          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/voiceactor/" clickable />
+          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/doujin/voiceactor/" clickable />
         </ListItem>
       </Paper>
     </div>
