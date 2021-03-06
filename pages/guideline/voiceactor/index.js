@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function GuidelineIndexPage() {
+export default function GuidelineVoiceActorIndexPage() {
   return (
     <div>
       <Typography variant="h3" gutterBottom>

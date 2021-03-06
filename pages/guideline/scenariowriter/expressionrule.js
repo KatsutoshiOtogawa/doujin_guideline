@@ -11,7 +11,9 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import Divider from "@material-ui/core/Divider";
 import Paper from "@material-ui/core/Paper";
+import Chip from "@material-ui/core/Chip";
 
 const useStyles = makeStyles({
   root: {
@@ -672,6 +674,12 @@ export default function GuidelineScenariowriterExpressionrulePage() {
           </TableBody>
         </Table>
       </TableContainer>
+      <Divider />
+      <Paper component="ul">
+        <ListItem>
+          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/voiceactor/" clickable />
+        </ListItem>
+      </Paper>
     </div>
   );
 }

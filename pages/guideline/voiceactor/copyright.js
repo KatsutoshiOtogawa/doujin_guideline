@@ -5,17 +5,37 @@ import Link from "@material-ui/core/Link";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Divider from "@material-ui/core/Divider";
+import Paper from "@material-ui/core/Paper";
+import Chip from "@material-ui/core/Chip";
+import TagFacesIcon from '@material-ui/icons/TagFaces';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
-    maxWidth: 500
-  }
-});
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    listStyle: 'none',
+    padding: theme.spacing(0.5),
+    margin: 0,
+  },
+  chip: {
+    margin: theme.spacing(0.5),
+  },
+}));
 
 export default function GuidelineVoiceActorCopyrightPage() {
+  const classes = useStyles();
+  // const [chipData, setChipData] = React.useState([
+  //   { key: 0, label: 'Angular' },
+  //   { key: 1, label: 'jQuery' },
+  //   { key: 2, label: 'Polymer' },
+  //   { key: 3, label: 'React' },
+  //   { key: 4, label: 'Vue.js' },
+  // ]);
+
   return (
-    <div>
+    <div className='root'>
       <Typography variant="h3" gutterBottom>
         ガイドライン
       </Typography>
@@ -66,6 +86,12 @@ export default function GuidelineVoiceActorCopyrightPage() {
           </ListItem>
         </List>
       </Typography>
+      <Divider />
+      <Paper component="ul">
+        <ListItem>
+          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/voiceactor/" clickable />
+        </ListItem>
+      </Paper>
     </div>
   );
 }
