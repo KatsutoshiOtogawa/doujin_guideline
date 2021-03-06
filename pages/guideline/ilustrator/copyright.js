@@ -84,7 +84,7 @@ export default function GuidelineIlustratorCopyrightPage() {
       <Divider />
       <Paper component="ul">
         <ListItem>
-          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/voiceactor/" clickable />
+          <Chip size="small" label="イラストレーター様向けガイドライン" component="a" href="/guideline/ilustrator/" clickable />
         </ListItem>
       </Paper>
     </div>

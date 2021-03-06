@@ -82,7 +82,7 @@ export default function GuidelineScenariowriterDataformatPage() {
       <Divider />
       <Paper component="ul">
         <ListItem>
-          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/voiceactor/" clickable />
+        <Chip size="small" label="シナリオライター様向けガイドライン" component="a" href="/guideline/scenariowriter/" clickable />
         </ListItem>
       </Paper>
     </div>
