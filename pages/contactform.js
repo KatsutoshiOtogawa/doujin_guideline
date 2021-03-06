@@ -15,6 +15,8 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { useRouter } from 'next/router';
 import { useForm } from "react-hook-form";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Backdrop from '@material-ui/core/Backdrop';
 
 const useStyles = makeStyles((theme) => ({
     
@@ -40,32 +42,18 @@ const useStyles = makeStyles((theme) => ({
 export default function ContactformPage() {
     const classes = useStyles();
     const router = useRouter();
+    const { register, errors, handleSubmit } = useForm();
 
-    const [name, setName] = useState('');
-    const [mail_address, setMail_address] = useState('');
-    const [subject, setSubject] = useState('');
-    const [content, setContent] = useState('');
+    // const [name, setName] = useState('');
+    // const [mail_address, setMail_address] = useState('');
+    // const [subject, setSubject] = useState('');
+    // const [content, setContent] = useState('');
 
-    const handleSubmit = event => {
-        
-        // submitのデフォルトの送信処理をキャンセル。
-        // requiredの機能もなくなるが仕様。
-        event.preventDefault();
+    const [open, setOpen] = useState(false);
 
-        const name = document.querySelector('form #name');
+    const onSubmit = (data) => {
 
-        const mail_address = document.querySelector('form #mail_address');
-
-        const subject = document.querySelector('form #subject');
-
-        document.querySelector('form #subject');
-
-        let data = {
-            name
-            ,mail_address
-            ,subject
-            ,content
-        };
+        setOpen(true);
 
         fetch("https://pointy-gauge.glitch.me/api/form", {
             method: "POST",
@@ -76,39 +64,81 @@ export default function ContactformPage() {
         }).then(response => response.json())
         .then(response => {
             console.log("Success:", JSON.stringify(response));
+            console.log(data);
             // リダイレクト
             router.push('/');
         }).catch(error => {
             console.error("Error:", error);
         });
+
+        setOpen(false);
     };
+    // const handleSubmit = event => {
+        
+    //     // submitのデフォルトの送信処理をキャンセル。
+    //     // requiredの機能もなくなるが仕様。
+    //     event.preventDefault();
+
+    //     const name = document.querySelector('form #name');
+
+    //     const mail_address = document.querySelector('form #mail_address');
+
+    //     const subject = document.querySelector('form #subject');
+
+    //     document.querySelector('form #subject');
+
+    //     let data = {
+    //         name
+    //         ,mail_address
+    //         ,subject
+    //         ,content
+    //     };
+
+    //     fetch("https://pointy-gauge.glitch.me/api/form", {
+    //         method: "POST",
+    //         body: JSON.stringify(data),
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
+    //     }).then(response => response.json())
+    //     .then(response => {
+    //         console.log("Success:", JSON.stringify(response));
+    //         // リダイレクト
+    //         router.push('/');
+    //     }).catch(error => {
+    //         console.error("Error:", error);
+    //     });
+    // };
 
   return (
     <div>
         <Typography variant="h3" gutterBottom>
         コンタクトフォーム
         </Typography>
-        <form className={classes.form} noValidate autoComplete="off" method="POST" onSubmit={handleSubmit}>
+        <form className={classes.form} autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
             <Grid item xs={12} sm={6}>
-                <TextField id="name" label="お名前" required value={name} onChange={(event)=>setName(event.target.value)} />
+                <TextField id="name" name="name" label="お名前" inputRef={register({ required: true })} />
+                {errors.name ? <Alert severity="error">This is an error alert — check it out!</Alert> : ""}
             </Grid>
             <Grid item xs={12} sm={6}>
-                <TextField id="mail_address" label="メールアドレス" required value={mail_address} onChange={(event)=>setMail_address(event.target.value)} />
+                <TextField id="mail_address" name="mail_address" label="メールアドレス" inputRef={register({ required: true })} />
+                {errors.mail_address ? <Alert severity="error">This is an error alert — check it out!</Alert> : ""}
             </Grid>
             <Grid item xs={12}>
-                <TextField id="subject" label="件名" required value={subject} onChange={(event)=>setSubject(event.target.value)} />
+                <TextField id="subject" name="subject" label="件名" inputRef={register({ required: true })}  />
+                {errors.subject ? <Alert severity="error">This is an error alert — check it out!</Alert> : ""}
             </Grid>
             <Grid item xs={12}>
                 <TextField
                     id="content"
+                    name="content"
                     label="本文"
                     multiline
                     rows={4}
                     rowsMax={8}
-                    required
-                    value={content}
-                    onChange={(event)=>setContent(event.target.value)}
+                    inputRef={register({ required: true })}
                 />
+                {errors.content ? <Alert severity="error">This is an error alert — check it out!</Alert> : ""}
             </Grid>
             <Grid item xs={12}>
                 <Button
@@ -121,6 +151,9 @@ export default function ContactformPage() {
                     送る
                 </Button>
             </Grid>
+            <Backdrop open={open} >
+                <CircularProgress />
+            </Backdrop>
         </form>
       <Typography variant="body1" gutterBottom>
         <List>
