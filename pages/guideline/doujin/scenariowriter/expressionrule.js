@@ -31,6 +31,18 @@ function createData(name, permited, mypolicy) {
 
 export default function GuidelineScenariowriterExpressionrulePage() {
   const classes = useStyles();
+
+  // const [articles,changeArticle] = useState({});
+  // // get data
+  // useEffect(() => {
+  //     fetch(`https://xxx/lists?page=1`)
+  //     .then( res => res.json() )
+  //     .then( res => {
+  //         changeArticle(res);
+  //     });
+  // });
+
+
   const racerows = [
     createData("白人", false, false),
     createData("黒人", false, false),

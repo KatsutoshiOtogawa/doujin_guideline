@@ -44,17 +44,12 @@ export default function ContactformPage() {
     const router = useRouter();
     const { register, errors, handleSubmit } = useForm();
 
-    // const [name, setName] = useState('');
-    // const [mail_address, setMail_address] = useState('');
-    // const [subject, setSubject] = useState('');
-    // const [content, setContent] = useState('');
-
     const [open, setOpen] = useState(false);
 
     const onSubmit = (data) => {
 
         setOpen(true);
-
+        
         fetch("https://pointy-gauge.glitch.me/api/form", {
             method: "POST",
             body: JSON.stringify(data),
@@ -73,134 +68,98 @@ export default function ContactformPage() {
 
         setOpen(false);
     };
-    // const handleSubmit = event => {
-        
-    //     // submitのデフォルトの送信処理をキャンセル。
-    //     // requiredの機能もなくなるが仕様。
-    //     event.preventDefault();
 
-    //     const name = document.querySelector('form #name');
-
-    //     const mail_address = document.querySelector('form #mail_address');
-
-    //     const subject = document.querySelector('form #subject');
-
-    //     document.querySelector('form #subject');
-
-    //     let data = {
-    //         name
-    //         ,mail_address
-    //         ,subject
-    //         ,content
-    //     };
-
-    //     fetch("https://pointy-gauge.glitch.me/api/form", {
-    //         method: "POST",
-    //         body: JSON.stringify(data),
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     }).then(response => response.json())
-    //     .then(response => {
-    //         console.log("Success:", JSON.stringify(response));
-    //         // リダイレクト
-    //         router.push('/');
-    //     }).catch(error => {
-    //         console.error("Error:", error);
-    //     });
-    // };
-
-  return (
-    <div>
-        <Typography variant="h3" gutterBottom>
-        コンタクトフォーム
+    return (
+        <div>
+            <Typography variant="h3" gutterBottom>
+            コンタクトフォーム
+            </Typography>
+            <form className={classes.form} autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
+                <Grid item xs={12} sm={6}>
+                    <TextField id="name" name="name" label="お名前" inputRef={register({ required: '必須項目です。' })} />
+                    {errors.name && errors.name.message}
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField id="mail_address" name="mail_address" label="メールアドレス" inputRef={register({ required: '必須項目です。' })} />
+                    {errors.mail_address && errors.mail_address.message}
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField id="subject" name="subject" label="件名" inputRef={register({ required: '必須項目です。' })}  />
+                    {errors.subject && errors.subject.message}
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        id="content"
+                        name="content"
+                        label="本文"
+                        multiline
+                        rows={4}
+                        rowsMax={8}
+                        inputRef={register({ required: '必須項目です。' })}
+                    />
+                    {errors.content && errors.content.message}
+                </Grid>
+                <Grid item xs={12}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                        endIcon={<Icon>send</Icon>}
+                        type="submit"
+                    >
+                        送る
+                    </Button>
+                </Grid>
+                <Backdrop open={open} >
+                    <CircularProgress />
+                </Backdrop>
+            </form>
+        <Typography variant="body1" gutterBottom>
+            <List>
+            <ListItem>
+                <ListItemText>
+                音声の著作権は、音声を収録した声優様にあります。
+                </ListItemText>
+            </ListItem>
+            <ListItem>
+                <ListItemText>
+                納品いただいた音声の使用権は、当サークルにあります。
+                </ListItemText>
+            </ListItem>
+            <ListItem>
+                <ListItemText>
+                当サークルは、納品いただいた音声を販売及び一般配布、広告活動する目的で、音声を加工・編集・分割・結合し、公開します。
+                </ListItemText>
+            </ListItem>
+            <ListItem>
+                <ListItemText>
+                納品いただいた音声は、声優様にお伝えした作品で使用します。
+                </ListItemText>
+            </ListItem>
+            <ListItem>
+                <ListItemText>
+                納品いただいた音声を声優様にお伝えした以外の作品で使用する際は、声優様に確認のうえ使用します。
+                </ListItemText>
+            </ListItem>
+            <ListItem>
+                <ListItemText>
+                声優様は当サークルに納品した音声を、当サークルに連絡することなく、販売や公開、譲渡、他の作品での利用等しないで下さい。<br />
+                例）「女戦士の陵辱」作品で音声を収録し、やがて続編の「女戦士の陵辱２」の作品を作ることが決まったケース等で、「女戦士の陵辱」で使用した音声の一部を流用する場合等は、必ず声優様に確認のうえで使用いたします。
+                </ListItemText>
+            </ListItem>
+            <ListItem>
+                <ListItemText>
+                音声を納品いただいた後に、「公開停止」等の要求をすることはご遠慮下さい。
+                </ListItemText>
+            </ListItem>
+            </List>
         </Typography>
-        <form className={classes.form} autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
-            <Grid item xs={12} sm={6}>
-                <TextField id="name" name="name" label="お名前" inputRef={register({ required: true })} />
-                {errors.name ? <Alert severity="error">This is an error alert — check it out!</Alert> : ""}
-            </Grid>
-            <Grid item xs={12} sm={6}>
-                <TextField id="mail_address" name="mail_address" label="メールアドレス" inputRef={register({ required: true })} />
-                {errors.mail_address ? <Alert severity="error">This is an error alert — check it out!</Alert> : ""}
-            </Grid>
-            <Grid item xs={12}>
-                <TextField id="subject" name="subject" label="件名" inputRef={register({ required: true })}  />
-                {errors.subject ? <Alert severity="error">This is an error alert — check it out!</Alert> : ""}
-            </Grid>
-            <Grid item xs={12}>
-                <TextField
-                    id="content"
-                    name="content"
-                    label="本文"
-                    multiline
-                    rows={4}
-                    rowsMax={8}
-                    inputRef={register({ required: true })}
-                />
-                {errors.content ? <Alert severity="error">This is an error alert — check it out!</Alert> : ""}
-            </Grid>
-            <Grid item xs={12}>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                    endIcon={<Icon>send</Icon>}
-                    type="submit"
-                >
-                    送る
-                </Button>
-            </Grid>
-            <Backdrop open={open} >
-                <CircularProgress />
-            </Backdrop>
-        </form>
-      <Typography variant="body1" gutterBottom>
-        <List>
-          <ListItem>
-            <ListItemText>
-            音声の著作権は、音声を収録した声優様にあります。
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>
-            納品いただいた音声の使用権は、当サークルにあります。
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>
-            当サークルは、納品いただいた音声を販売及び一般配布、広告活動する目的で、音声を加工・編集・分割・結合し、公開します。
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>
-            納品いただいた音声は、声優様にお伝えした作品で使用します。
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>
-            納品いただいた音声を声優様にお伝えした以外の作品で使用する際は、声優様に確認のうえ使用します。
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>
-            声優様は当サークルに納品した音声を、当サークルに連絡することなく、販売や公開、譲渡、他の作品での利用等しないで下さい。<br />
-            例）「女戦士の陵辱」作品で音声を収録し、やがて続編の「女戦士の陵辱２」の作品を作ることが決まったケース等で、「女戦士の陵辱」で使用した音声の一部を流用する場合等は、必ず声優様に確認のうえで使用いたします。
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>
-            音声を納品いただいた後に、「公開停止」等の要求をすることはご遠慮下さい。
-            </ListItemText>
-          </ListItem>
-        </List>
-      </Typography>
-      <Divider />
-      <Paper component="ul">
-        <ListItem>
-          <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/doujin/voiceactor/" clickable />
-        </ListItem>
-      </Paper>
-    </div>
-  );
+        <Divider />
+        <Paper component="ul">
+            <ListItem>
+            <Chip size="small" label="声優様向けガイドライン" component="a" href="/guideline/doujin/voiceactor/" clickable />
+            </ListItem>
+        </Paper>
+        </div>
+    );
 }
