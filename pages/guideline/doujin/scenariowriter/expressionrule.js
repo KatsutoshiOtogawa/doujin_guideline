@@ -32,13 +32,13 @@ function createData(name, permited, mypolicy) {
 export default function GuidelineScenariowriterExpressionrulePage() {
   const classes = useStyles();
 
-  // const [articles,changeArticle] = useState({});
+  // const [data,setData] = useState({});
   // // get data
   // useEffect(() => {
   //     fetch(`https://xxx/lists?page=1`)
   //     .then( res => res.json() )
   //     .then( res => {
-  //         changeArticle(res);
+  //         setData(res);
   //     });
   // });
 
