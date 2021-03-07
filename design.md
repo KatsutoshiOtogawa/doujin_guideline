@@ -8,7 +8,7 @@ MSSQL
 CREATE TABLE expression_rule_category (
     id int IDENTITY(1,1) NOT NULL
     ,name varchar(40)
-    ,express varchar(50)
+    ,express varchar(200)
     ,CONSTRAINT PK_TransactionHistoryArchive_TransactionID PRIMARY KEY CLUSTERED (id)
 );
 GO
@@ -84,18 +84,22 @@ GO
 
 ## ddl
 ```sql
-INSERT INTO expression_rule_category (name,express) VALUES ('人種');
-INSERT INTO expression_rule_category (name,express) VALUES ('国名');
-INSERT INTO expression_rule_category (name,express) VALUES ('地名');
-INSERT INTO expression_rule_category (name,express) VALUES ('名所');
-INSERT INTO expression_rule_category (name,express) VALUES ('宗教');
-INSERT INTO expression_rule_category (name,express) VALUES ('侮辱');
-INSERT INTO expression_rule_category (name,express) VALUES ('年齢表現');
-INSERT INTO expression_rule_category (name,express) VALUES ('スカトロ');
-INSERT INTO expression_rule_category (name,express) VALUES ('金融表現');
-INSERT INTO expression_rule_category (name,express) VALUES ('リョナ');
-INSERT INTO expression_rule_category (name,express) VALUES ('性器表現');
-INSERT INTO expression_rule_category (name,express) VALUES ('その他の表現');
+INSERT INTO expression_rule_category (name,express) VALUES ('人種','問題になりやすい、またこちらで問題の閾を把握するのが困難なため黒人などの言葉はNGです。
+使いたい場合は褐色の肌、透き通るような白など肌の色で表現してください。
+アメリカの作品などは肌の色をカラフルにしているため、色の表現は規制に引っ掛かりづらいのです。');
+INSERT INTO expression_rule_category (name,express) VALUES ('国名','一部の国はNGになっております。こちらでルールを把握することが困難なためにグレーゾーンのものは、NGとさせておきます。');
+INSERT INTO expression_rule_category (name,express) VALUES ('地名','具体的すぎるとNGになります。');
+INSERT INTO expression_rule_category (name,express) VALUES ('名所','場所が確定されてしまうもの、または企業側からNGが出されているものはだめです。');
+INSERT INTO expression_rule_category (name,express) VALUES ('宗教','精神、宗教の自由に反する可能性が高いためNGです。');
+INSERT INTO expression_rule_category (name,express) VALUES ('侮辱','ここに特記されて無くても特定の病気についてはNGです。');
+INSERT INTO expression_rule_category (name,express) VALUES ('年齢表現','近年はかなり厳し目になっています。');
+INSERT INTO expression_rule_category (name,express) VALUES ('スカトロ','スカトロについての規制は緩いです。');
+INSERT INTO expression_rule_category (name,express) VALUES ('金融表現','金融,ギャンブル系については当サークルは厳しめに設定されております。
+これは、青少年が金融関係の知識を持たないため社会に出るためです。');
+INSERT INTO expression_rule_category (name,express) VALUES ('リョナ','リョナ、グロについては日本でも海外でも比較的に緩いです。');
+INSERT INTO expression_rule_category (name,express) VALUES ('性器表現','性器表現の規制はありません。 どのような表現方法でもOKです。
+また、伏せ字は不要です。 「ち●こ」といった伏せ字は一切不要です。');
+INSERT INTO expression_rule_category (name,express) VALUES ('その他の表現','個人・団体に迷惑をかける恐れがあるものはNGです。');
 
 INSERT INTO expression_rule (category_id,name,permited,mypolicy) VALUES(1,'白人',false,false);
 INSERT INTO expression_rule (category_id,name,permited,mypolicy) VALUES(1,'黒人',false,false);
